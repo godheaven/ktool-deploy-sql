@@ -28,7 +28,7 @@ Currently this tool has support for the following database engines:
 
 1. Example catalog.xml
 
-```java
+```xml
 
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog>
