@@ -4,8 +4,8 @@
     <database>
         <label>KANOPUS-LOCAL</label>
         <scripts>
-            <script onetime="true" type="DATA" label="test1">src/main/resources/scripts/test1.sql</script>
-            <script onetime="false" type="DATA" label="test2">src/main/resources/scripts/test2.sql</script>
+            <script onetime="true" type="DATA" label="test1">resources/local/scripts/test1.sql</script>
+            <script onetime="false" type="DATA" label="test2">resources/local/scripts/test2.sql</script>
         </scripts>
     </database>
      

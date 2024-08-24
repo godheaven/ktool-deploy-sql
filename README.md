@@ -80,6 +80,24 @@ public class Application implements CommandLineRunner {
 
 ```
 
+3. Example Output (second attempt)
+
+```console
+
+... Started Application in 1.285 seconds (process running for 1.604)
+... catalog.xsd loaded successfull
+... catalog.xml loaded successfull
+... Catalog has been loaded for KANOPUS-LOCAL database
+ -----------------------------------------------------------------------
+... [KANOPUS-LOCAL] Getting connection to database --> user:[my-user],  timeout: [30], url: [jdbc:postgresql://localhost/my-database]
+... [KANOPUS-LOCAL] Connection successfully established
+... [KANOPUS-LOCAL] Catalog asocciated with 2 scripts for execution
+... [KANOPUS-LOCAL] [1/2] (SKIPPED): The script test1.sql has been skipped.
+... [KANOPUS-LOCAL] [2/2] (SUCCESS): The script test2.sql has been successfully executed.
+... [KANOPUS-LOCAL] The database connection is closed 
+
+```
+
 ## Authors
 
 - [@pabloandres.diazsaavedra](https://www.linkedin.com/in/pablo-diaz-saavedra-4b7b0522/)
