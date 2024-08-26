@@ -7,7 +7,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.2.5</version>
-        <relativePath />
+        <relativePath/>
     </parent>
     <groupId>cl.kanopus</groupId>
     <artifactId>ktool-deploy-sql</artifactId>
@@ -55,7 +55,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.6.2</version>
+            <version>42.7.3</version>
         </dependency>
         
         <!-- 
