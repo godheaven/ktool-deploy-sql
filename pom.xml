@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.5</version>
+        <version>3.3.0</version>
         <relativePath />
     </parent>
     <groupId>cl.kanopus</groupId>
@@ -22,7 +22,7 @@
     
     <profiles>
         
-        <!-- ############## [Example] #####################-->
+        <!-- ############## [Local] #####################-->
         <profile>
             <id>local</id>
             <build>
@@ -34,6 +34,44 @@
                         <directory>resources/local</directory>
                     </resource>
                 </resources>
+            </build>
+        </profile>
+        
+        <!-- ############## [Zipped] #####################-->
+        <profile>
+            <id>package-zip</id>
+            <properties>
+                <skip.tests>true</skip.tests>
+            </properties>
+            <build>
+                <finalName>ktool-deploy-sql</finalName>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                    </resource>
+                </resources>
+                <plugins>             
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>create-distribution</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <configuration>
+                                    <appendAssemblyId>false</appendAssemblyId>
+                                    <outputDirectory>./</outputDirectory>
+                                    <descriptors>
+                                        <descriptor>resources/local/zip.xml</descriptor>
+                                    </descriptors>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
             </build>
         </profile>
         
@@ -49,13 +87,13 @@
         <dependency>
             <groupId>cl.kanopus</groupId>
             <artifactId>klib-deploy-sql</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </dependency>
         
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.6.2</version>
+            <version>42.7.3</version>
         </dependency>
         
         <!-- 
@@ -79,12 +117,12 @@
 
  
     <build>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-            </resource>
-        </resources>
-        
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>            
+        </plugins>        
     </build>
     
 
