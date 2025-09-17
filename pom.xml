@@ -1,135 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.0</version>
-        <relativePath />
-    </parent>
-    <groupId>cl.kanopus</groupId>
-    <artifactId>ktool-deploy-sql</artifactId>
-    <version>1.0.0</version>
-    <name>ktool-deploy-sql</name>
-    <description>Kanopus tool used to run sql script on database</description>
+	<parent>
+		<groupId>cl.kanopus</groupId>
+		<artifactId>kanopus-boot-parent</artifactId>
+		<version>3.5.5</version>
+		<relativePath/>
+	</parent>
 
-    <properties>
-        <java.version>17</java.version>
-        <start-class>cl.kanopus.tools.deploysql.Application</start-class>
-    </properties>
-    
-    <profiles>
-        
-        <!-- ############## [Local] #####################-->
-        <profile>
-            <id>local</id>
-            <build>
-                <resources>
-                    <resource>
-                        <directory>src/main/resources</directory>
-                    </resource>
-                    <resource>
-                        <directory>resources/local</directory>
-                    </resource>
-                </resources>
-            </build>
-        </profile>
-        
-        <!-- ############## [Zipped] #####################-->
-        <profile>
-            <id>package-zip</id>
-            <properties>
-                <skip.tests>true</skip.tests>
-            </properties>
-            <build>
-                <finalName>ktool-deploy-sql</finalName>
-                <resources>
-                    <resource>
-                        <directory>src/main/resources</directory>
-                    </resource>
-                </resources>
-                <plugins>             
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-assembly-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>create-distribution</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>single</goal>
-                                </goals>
-                                <configuration>
-                                    <appendAssemblyId>false</appendAssemblyId>
-                                    <outputDirectory>./</outputDirectory>
-                                    <descriptors>
-                                        <descriptor>resources/local/zip.xml</descriptor>
-                                    </descriptors>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        
-    </profiles>
-    
-    
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        
-        <dependency>
-            <groupId>cl.kanopus</groupId>
-            <artifactId>klib-deploy-sql</artifactId>
-            <version>1.0.1</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.7.3</version>
-        </dependency>
-        
-        <!-- 
-        <dependency>
-            <groupId>com.microsoft.sqlserver</groupId>
-            <artifactId>mssql-jdbc</artifactId>
-            <version>12.4.2.jre11</version>
-            <scope>provided</scope>
-        </dependency>
-        
-        <dependency>
-            <groupId>com.oracle.database.jdbc</groupId>
-            <artifactId>ojdbc8</artifactId>
-            <version>21.9.0.0</version>
-            <scope>provided</scope>
-        </dependency>
-        
-        -->
+	<groupId>cl.kanopus.tool</groupId>
+	<artifactId>ktool-deploy-sql</artifactId>
+	<version>1.0.0</version>
+	<name>ktool-deploy-sql</name>
+	<description>Kanopus tool used to run sql script on database</description>
 
-    </dependencies>
+	<properties>
+		<start-class>cl.kanopus.tools.deploysql.Application</start-class>
+	</properties>
 
- 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>            
-        </plugins>        
-    </build>
-    
+	<profiles>
+
+		<!-- ############## [Local] #####################-->
+		<profile>
+			<id>local</id>
+			<build>
+				<resources>
+					<resource>
+						<directory>src/main/resources</directory>
+					</resource>
+					<resource>
+						<directory>resources/local</directory>
+					</resource>
+				</resources>
+			</build>
+		</profile>
+
+		<!-- ############## [Zipped] #####################-->
+		<profile>
+			<id>package-zip</id>
+			<properties>
+				<skip.tests>true</skip.tests>
+			</properties>
+			<build>
+				<finalName>ktool-deploy-sql</finalName>
+				<resources>
+					<resource>
+						<directory>src/main/resources</directory>
+					</resource>
+				</resources>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>create-distribution</id>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+								<configuration>
+									<appendAssemblyId>false</appendAssemblyId>
+									<outputDirectory>./</outputDirectory>
+									<descriptors>
+										<descriptor>resources/local/zip.xml</descriptor>
+									</descriptors>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+	</profiles>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>cl.kanopus.util</groupId>
+			<artifactId>klib-deploy-sql</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<version>12.10.1.jre11</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<version>23.7.0.25.01</version>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
 
 </project>
