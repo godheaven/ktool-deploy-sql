@@ -111,7 +111,7 @@
 		<dependency>
 			<groupId>com.oracle.database.jdbc</groupId>
 			<artifactId>ojdbc8</artifactId>
-			<version>23.7.0.25.01</version>
+			<version>23.9.0.25.07</version>
 			<scope>provided</scope>
 		</dependency>
 
