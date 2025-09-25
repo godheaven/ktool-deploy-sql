@@ -24,7 +24,6 @@
             <includes>
                 <include>application.properties</include>
                 <include>catalog.xml</include>
-                <include>catalog.xsd</include>
                 <include>run.sh</include>
                 <include>logback-spring.xml</include>
                 <include>scripts/*</include>

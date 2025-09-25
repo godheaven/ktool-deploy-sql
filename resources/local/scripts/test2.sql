@@ -1,3 +1,3 @@
 
 
-select * from region;
+select * from tmp_test_data;
