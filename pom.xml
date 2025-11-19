@@ -6,12 +6,12 @@
 	<parent>
 		<groupId>cl.kanopus</groupId>
 		<artifactId>kanopus-boot-parent</artifactId>
-		<version>3.5.6</version>
+		<version>3.5.7</version>
 	</parent>
 
 	<groupId>cl.kanopus.tool</groupId>
 	<artifactId>ktool-deploy-sql</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 
 	<name>ktool-deploy-sql</name>
 	<description>Kanopus tool used to run sql script on database</description>
@@ -97,21 +97,6 @@
 		<dependency>
 			<groupId>cl.kanopus.util</groupId>
 			<artifactId>klib-deploy-sql</artifactId>
-			<version>3.0.1</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.apache.logging.log4j</groupId>
-					<artifactId>log4j-core</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.apache.logging.log4j</groupId>
-					<artifactId>log4j-slf4j2-impl</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>ch.qos.logback</groupId>
-					<artifactId>logback-classic</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 
 		<dependency>
