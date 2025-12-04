@@ -18,16 +18,11 @@ Currently this tool has support for the following database engines:
 - It is possible to define whether a SQL script should be executed once or multiple times (onetime).
 - Automatic audit stored in (CATALOG_SCRIPT_SQL, CATALOG_SCRIPT_SQL_EXECUTION)
 
-## Pre-requisites
-
-It is necessary to copy the "klib-deploy-sql" library to your maven repository.
-
 ## Usage/Examples
 
 1. Example catalog.xml
 
 ```xml
-
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog>
 
