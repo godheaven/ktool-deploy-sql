@@ -1,4 +1,4 @@
-![Logo](https://www.kanopus.cl/admin/javax.faces.resource/images/logo-gray.png.xhtml?ln=paradise-layout)
+![Logo](https://www.kanopus.cl/assets/kanopus-grey.png)
 
 # ktool-deploy-sql
 
@@ -11,6 +11,7 @@ Currently this tool has support for the following database engines:
 - Postgresql
 - Oracle
 - SQL Server
+- IBM DB2
 
 ## Features
 
