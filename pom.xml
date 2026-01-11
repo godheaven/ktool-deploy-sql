@@ -6,12 +6,11 @@
 	<parent>
 		<groupId>cl.kanopus</groupId>
 		<artifactId>kanopus-boot-parent</artifactId>
-		<version>3.58.0</version>
+		<version>3.59.0</version>
 	</parent>
 
 	<groupId>cl.kanopus.tool</groupId>
 	<artifactId>ktool-deploy-sql</artifactId>
-	<version>3.58.0</version>
 
 	<name>ktool-deploy-sql</name>
 	<description>Kanopus tool used to run sql script on database</description>
@@ -111,6 +110,12 @@
 		<dependency>
 			<groupId>com.oracle.database.jdbc</groupId>
 			<artifactId>ojdbc8</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ibm.db2</groupId>
+			<artifactId>jcc</artifactId>
 			<scope>provided</scope>
 		</dependency>
 
