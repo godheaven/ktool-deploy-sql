@@ -21,7 +21,7 @@
  * limitations under the License.
  * --!
  */
-package cl.kanopus.tools.deploysql.application.enums;
+package cl.kanopus.tool.deploysql.application.enums;
 
 /**
  *

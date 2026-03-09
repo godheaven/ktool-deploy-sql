@@ -21,10 +21,10 @@
  * limitations under the License.
  * --!
  */
-package cl.kanopus.tools.deploysql.application;
+package cl.kanopus.tool.deploysql.application;
 
 import cl.kanopus.common.util.Utils;
-import cl.kanopus.tools.deploysql.application.enums.Property;
+import cl.kanopus.tool.deploysql.application.enums.Property;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

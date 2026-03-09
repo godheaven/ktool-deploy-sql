@@ -23,7 +23,7 @@
 	</scm>
 
 	<properties>
-		<start-class>cl.kanopus.tools.deploysql.Application</start-class>
+		<start-class>cl.kanopus.tool.deploysql.Application</start-class>
 		<maven.test.skip>false</maven.test.skip>
 		<license.skip>false</license.skip>
 	</properties>

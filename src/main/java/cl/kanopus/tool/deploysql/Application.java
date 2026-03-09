@@ -21,11 +21,11 @@
  * limitations under the License.
  * --!
  */
-package cl.kanopus.tools.deploysql;
+package cl.kanopus.tool.deploysql;
 
 import cl.kanopus.deploysql.DeploySQL;
-import cl.kanopus.tools.deploysql.application.MyEnvironment;
-import cl.kanopus.tools.deploysql.application.enums.Property;
+import cl.kanopus.tool.deploysql.application.MyEnvironment;
+import cl.kanopus.tool.deploysql.application.enums.Property;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
