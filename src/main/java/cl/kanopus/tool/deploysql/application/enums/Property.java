@@ -24,14 +24,10 @@
 package cl.kanopus.tool.deploysql.application.enums;
 
 /**
- *
- *
- * This class identifies all properties specified in the file batch.properties
- * It is used to access the properties referenced by the class ContextHolder
- *
+ * This class identifies all properties specified in the file batch.properties It is used to access
+ * the properties referenced by the class ContextHolder
  */
 public enum Property {
-
     TEST_USER("test.user"),
     TEST_PASS("test.pass"),
     TEST_JDBC_URL("test.jdbc.url");
@@ -45,5 +41,4 @@ public enum Property {
     public String getValue() {
         return value;
     }
-
 }

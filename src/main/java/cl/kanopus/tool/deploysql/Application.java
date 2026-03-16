@@ -31,10 +31,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 @Slf4j
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class}, scanBasePackages = "cl.kanopus")
+@SpringBootApplication(scanBasePackages = "cl.kanopus")
 public class Application implements CommandLineRunner {
 
     private final MyEnvironment env;
@@ -51,9 +50,11 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        DeploySQL deploy = new DeploySQL(env.getProp(Property.TEST_USER), env.getProp(Property.TEST_PASS), env.getProp(Property.TEST_JDBC_URL));
+        DeploySQL deploy =
+                new DeploySQL(
+                        env.getProp(Property.TEST_USER),
+                        env.getProp(Property.TEST_PASS),
+                        env.getProp(Property.TEST_JDBC_URL));
         deploy.execute();
     }
-
-
 }

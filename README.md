@@ -1,4 +1,8 @@
-![Logo](https://www.kanopus.cl/assets/kanopus-grey.png)
+<p align="left">
+  <img src="https://www.kanopus.cl/assets/kanopus_black.png" width="220"/>
+</p>
+
+![Maven](https://img.shields.io/maven-central/v/cl.kanopus.tool/ktool-deploy-sql) ![License](https://img.shields.io/badge/license-Apache%20License%202.0-blue) ![Java](https://img.shields.io/badge/java-17+-orange)
 
 # ktool-deploy-sql
 
@@ -13,96 +17,62 @@ Currently this tool has support for the following database engines:
 - SQL Server
 - IBM DB2
 
-## Features
+Note about IBM DB2 support:
+
+- This project includes IBM DB2 support but the DB2 JDBC driver (com.ibm.db2:jcc) is marked as
+  `provided` in the Maven configuration. That means the driver is not packaged inside the
+  generated artifact and must be supplied by the environment where the tool runs (for example,
+  placed in the application's classpath or provided by the container). If you want the driver
+  included in the final package, change the dependency scope from `provided` to `runtime` in
+  `pom.xml`.
+
+## ✨ Features
 
 - Configuration of sql scripts through a catalog.xml file
 - It is possible to define whether a SQL script should be executed once or multiple times (onetime).
 - Automatic audit stored in (CATALOG_SCRIPT_SQL, CATALOG_SCRIPT_SQL_EXECUTION)
 
-## Usage/Examples
+## 🚀 Installation
 
-1. Example catalog.xml
+You can run this tool using Docker or from the command line.
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<catalog>
+**Option 1 — Docker**
 
-	<database>
-		<label>KANOPUS-LOCAL</label>
-		<scripts>
-			<script onetime="true" type="DATA" label="test1">src/main/resources/scripts/test1.sql</script>
-			<script onetime="false" type="DATA" label="test2">src/main/resources/scripts/test2.sql</script>
-		</scripts>
-	</database>
-
-</catalog>
-
+```bash
+docker run --rm ktool-deploy-sql:4.03.0
 ```
 
-2. Example DeploySQL
+**Option 2 — Command line**
 
-```java
-
-package cl.kanopus.tools.deploysql;
-
-import cl.kanopus.deploysql.DeploySQL;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-
-/**
- *
- * @author Pablo Diaz Saavedra
- * @email pabloandres.diazsaavedra@gmail.com
- * @company Kanopus.cl
- */
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class}, scanBasePackages = "cl.kanopus")
-public class Application implements CommandLineRunner {
-
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
-    }
-
-    @Override
-    public void run(String... args) throws Exception {
-        DeploySQL deploy = new DeploySQL("my-user", "my-pass", "jdbc:postgresql://localhost/my-database");
-        deploy.execute("catalog.xml");
-    }
-
-}
-
+```bash
+java -jar ktool-deploy-sql-4.03.0.jar
 ```
 
-3. Example Output (second attempt)
+## 🚀 Usage Guide
 
-```console
+Example command:
 
-... Started Application in 1.285 seconds (process running for 1.604)
-... catalog.xsd loaded successfull
-... catalog.xml loaded successfull
-... Catalog has been loaded for KANOPUS-LOCAL database
- -----------------------------------------------------------------------
-... [KANOPUS-LOCAL] Getting connection to database --> user:[my-user],  timeout: [30], url: [jdbc:postgresql://localhost/my-database]
-... [KANOPUS-LOCAL] Connection successfully established
-... [KANOPUS-LOCAL] Catalog asocciated with 2 scripts for execution
-... [KANOPUS-LOCAL] [1/2] (SKIPPED): The script test1.sql has been skipped.
-... [KANOPUS-LOCAL] [2/2] (SUCCESS): The script test2.sql has been successfully executed.
-... [KANOPUS-LOCAL] The database connection is closed 
-
+```bash
+java -jar ktool-deploy-sql-4.03.0.jar
 ```
 
-## Authors
+Replace this example with the real command-line parameters supported by the tool.
 
-- [@pabloandres.diazsaavedra](https://www.linkedin.com/in/pablo-diaz-saavedra-4b7b0522/)
+## 👤 Author
 
-## License
+**Pablo Andrés Díaz Saavedra** — Founder of **Kanopus – Estrellas del Software**
+
+Kanopus builds tools and platforms that simplify software development and DevOps processes.
+
+[GitHub](https://github.com/godheaven) | [LinkedIn](https://www.linkedin.com/in/pablo-diaz-saavedra-4b7b0522/) | [Website](https://kanopus.cl)
+
+## 📄 License
 
 This software is licensed under the Apache License, Version 2.0. See the LICENSE file for details.
 I hope you enjoy it.
 
 [![Apache License, Version 2.0](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](https://opensource.org/license/apache-2-0)
 
-## Support
+## 🛟 Support
 
-For support, email soporte@kanopus.cl
+For support or questions contact: 📧 [soporte@kanopus.cl](mailto:soporte@kanopus.cl)
