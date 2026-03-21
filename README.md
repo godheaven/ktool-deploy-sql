@@ -1,5 +1,5 @@
-<p align="left">
-  <img src="https://www.kanopus.cl/assets/kanopus_black.png" width="220"/>
+<p style="text-align:left">
+  <img src="https://www.kanopus.cl/assets/kanopus_black.png" width="220" alt="Kanopus logo"/>
 </p>
 
 ![Maven](https://img.shields.io/maven-central/v/cl.kanopus.tool/ktool-deploy-sql) ![License](https://img.shields.io/badge/license-Apache%20License%202.0-blue) ![Java](https://img.shields.io/badge/java-17+-orange)
@@ -39,13 +39,13 @@ You can run this tool using Docker or from the command line.
 **Option 1 — Docker**
 
 ```bash
-docker run --rm ktool-deploy-sql:4.03.0
+docker run --rm ktool-deploy-sql:4.03.1
 ```
 
 **Option 2 — Command line**
 
 ```bash
-java -jar ktool-deploy-sql-4.03.0.jar
+java -jar ktool-deploy-sql-4.03.1.jar
 ```
 
 ## 🚀 Usage Guide
@@ -53,7 +53,7 @@ java -jar ktool-deploy-sql-4.03.0.jar
 Example command:
 
 ```bash
-java -jar ktool-deploy-sql-4.03.0.jar
+java -jar ktool-deploy-sql-4.03.1.jar
 ```
 
 Replace this example with the real command-line parameters supported by the tool.
